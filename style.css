@@ -1,17 +1,52 @@
+/* Body */
 body{
     background-color: rgb(30, 45, 3);
-    margin: 0;
+    margin-top: 2vh;
     padding-left: 10vw; /* Add left padding to accommodate the fixed header */
 }
+/* Header */
 header{
     position: fixed;
     top: 0;
     left: 0;
     width: 10vw; /* 10% of the window width */
     height: 100vh; /* 100% of the window height */
+    padding-top: 2vh;
     background-color: rgb(110, 55, 16);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     align-items: center;
+}
+/* Header links */
+header a{
+    color: white;
+    text-decoration: none;
+    padding: 2vh 2vh;
+    margin: 1vh 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: .5vh;
+}
+header a:hover{
+    color: rgb(30, 45, 3);
+    background-color: royalblue;
+}
+.inventory-grid{
+    width: 88vw;
+    height: 96vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: rgb(110, 55, 16);
+    margin: auto;
+}
+.inventory-slot {
+  width: 60px;
+  height: 60px;
+  background-color: #444;
+  border: 2px solid #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
