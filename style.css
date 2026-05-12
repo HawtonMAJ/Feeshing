@@ -32,21 +32,9 @@ header a:hover{
     color: rgb(30, 45, 3);
     background-color: royalblue;
 }
-.inventory-grid{
-    width: 88vw;
-    height: 96vh;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    background-color: rgb(110, 55, 16);
-    margin: auto;
+.bag{
+    display: none;
 }
-.inventory-slot {
-  width: 60px;
-  height: 60px;
-  background-color: #444;
-  border: 2px solid #666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.hide div{
+    display: inline-block;
 }
