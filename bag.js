@@ -1,7 +1,66 @@
-let bagBtn = document.getElementsByClassName("bagbtn")[0];
+// SAMPLE INVENTORY DATA
+const inventoryItems = [
+    { name: "Sword", icon: "⚔️", count: 1 },
+    { name: "Potion", icon: "🧪", count: 5 },
+    { name: "Shield", icon: "🛡️", count: 1 },
+    { name: "Gold", icon: "💰", count: 250 },
+    { name: "Bow", icon: "🏹", count: 1 },
+    { name: "Apple", icon: "🍎", count: 12 },
+    { name: "Gem", icon: "💎", count: 3 },
+    { name: "Map", icon: "🗺️", count: 1 }
+];
 
-function handleBagBtnClick(event) {
-    let bag = document.querySelectorAll(".bag");
-    bag.classList.toggle("hide")
+// ELEMENTS
+const modal = document.getElementById("inventoryModal");
+const openBtn = document.getElementById("openInventory");
+const closeBtn = document.getElementById("closeInventory");
+const inventoryGrid = document.getElementById("inventoryGrid");
+
+// OPEN MODAL
+openBtn.addEventListener("click", () => {
+    modal.classList.add("active");
+});
+
+// CLOSE MODAL
+closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+});
+
+// CLOSE WHEN CLICKING OUTSIDE
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.classList.remove("active");
+    }
+});
+
+// ESC KEY CLOSE
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        modal.classList.remove("active");
+    }
+});
+
+// RENDER INVENTORY
+function renderInventory() {
+    inventoryGrid.innerHTML = "";
+
+    inventoryItems.forEach(item => {
+
+        const slot = document.createElement("div");
+        slot.classList.add("item-slot");
+
+        slot.innerHTML = `
+            <div class="item-icon">${item.icon}</div>
+            <div class="item-name">${item.name}</div>
+            <div class="item-count">${item.count}</div>
+        `;
+
+        slot.addEventListener("click", () => {
+            alert(`You clicked ${item.name}`);
+        });
+
+        inventoryGrid.appendChild(slot);
+    });
 }
-bagBtn.addEventListener("click",handleBagBtnClick)
+
+renderInventory();
