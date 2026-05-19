@@ -15,10 +15,13 @@ const modal = document.getElementById("inventoryModal");
 const openBtn = document.getElementById("openInventory");
 const closeBtn = document.getElementById("closeInventory");
 const inventoryGrid = document.getElementById("inventoryGrid");
+const pond = document.querySelectorAll(".pond")
+const pondBtn = document.getElementById("pondButton")
 
 // OPEN MODAL
 openBtn.addEventListener("click", () => {
     modal.classList.add("active");
+    console.log('button clicked');
 });
 
 // CLOSE MODAL
@@ -55,12 +58,13 @@ function renderInventory() {
             <div class="item-count">${item.count}</div>
         `;
 
-        slot.addEventListener("click", () => {
-            alert(`You clicked ${item.name}`);
-        });
-
         inventoryGrid.appendChild(slot);
     });
 }
 
 renderInventory();
+
+// Reveal pond Div
+pondBtn.addEventListener("click", () => {
+    pond.classList.toggle("pond");
+});
