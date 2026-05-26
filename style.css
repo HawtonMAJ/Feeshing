@@ -178,17 +178,18 @@ body {
     align-items: center;
 }
 
-.pond {
-    display: none;
-}
-
 #pond {
-    width: 300px;
-    height: 300px;
+    width: 80vw;
+    height: 80vh;
     background: #2b2b2b;
+    background-image: url("pixil-frame-0.png");
+    background-size: 100% 100%;
     border: 2px solid #444;
     border-radius: 12px;
     justify-content: center;
     align-items: center;
     font-size: 24px;
+}
+.hide{
+    display: none;
 }

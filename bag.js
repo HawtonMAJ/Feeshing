@@ -1,13 +1,11 @@
 // SAMPLE INVENTORY DATA
+const fish = document.createElement('img');
+img.src = 'Feeshing/Fish_1.png';
+fish.style.width = '32px';
+document.getElementById('item-icon').appendChild(fish);
+
 const inventoryItems = [
-    { name: "Sword", icon: "⚔️", count: 1 },
-    { name: "Potion", icon: "🧪", count: 5 },
-    { name: "Shield", icon: "🛡️", count: 1 },
-    { name: "Gold", icon: "💰", count: 250 },
-    { name: "Bow", icon: "🏹", count: 1 },
-    { name: "Apple", icon: "🍎", count: 12 },
-    { name: "Gem", icon: "💎", count: 3 },
-    { name: "Map", icon: "🗺️", count: 1 }
+    { name: "Fish", icon: fish, count: 1 }
 ];
 
 // ELEMENTS
@@ -15,7 +13,7 @@ const modal = document.getElementById("inventoryModal");
 const openBtn = document.getElementById("openInventory");
 const closeBtn = document.getElementById("closeInventory");
 const inventoryGrid = document.getElementById("inventoryGrid");
-const pond = document.querySelectorAll(".pond")
+const pond = document.querySelector(".pond")
 const pondBtn = document.getElementById("pondButton")
 
 // OPEN MODAL
@@ -66,5 +64,5 @@ renderInventory();
 
 // Reveal pond Div
 pondBtn.addEventListener("click", () => {
-    pond.classList.toggle("pond");
+    pond.classList.toggle("hide");
 });
