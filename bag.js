@@ -1,9 +1,8 @@
-// SAMPLE INVENTORY DATA
 const fish = document.createElement('img');
-img.src = 'Feeshing/Fish_1.png';
+fish.src = ('./Fish_1.png');
 fish.style.width = '32px';
-document.getElementById('item-icon').appendChild(fish);
 
+// SAMPLE INVENTORY DATA
 const inventoryItems = [
     { name: "Fish", icon: fish, count: 1 }
 ];
@@ -51,7 +50,7 @@ function renderInventory() {
         slot.classList.add("item-slot");
 
         slot.innerHTML = `
-            <div class="item-icon">${item.icon}</div>
+            <div class="item-icon"><img src="${item.icon.src}"></div>
             <div class="item-name">${item.name}</div>
             <div class="item-count">${item.count}</div>
         `;
