@@ -12,7 +12,7 @@ const modal = document.getElementById("inventoryModal");
 const openBtn = document.getElementById("openInventory");
 const closeBtn = document.getElementById("closeInventory");
 const inventoryGrid = document.getElementById("inventoryGrid");
-const pond = document.querySelector(".pond")
+const pond = document.querySelector("#pond")
 const pondBtn = document.getElementById("pondButton")
 
 // OPEN MODAL
@@ -65,3 +65,8 @@ renderInventory();
 pondBtn.addEventListener("click", () => {
     pond.classList.toggle("hide");
 });
+
+// Add fish to inventory when pond is clicked
+pond.addEventListener("click", () => {
+    
+})
