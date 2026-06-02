@@ -4,7 +4,7 @@ fish.style.width = '32px';
 
 // SAMPLE INVENTORY DATA
 const inventoryItems = [
-    { name: "Fish", icon: fish, count: 1 }
+    { name: "Fish", icon: "./Fish_1.png", count: 1 }
 ];
 
 // ELEMENTS
@@ -18,7 +18,6 @@ const pondBtn = document.getElementById("pondButton")
 // OPEN MODAL
 openBtn.addEventListener("click", () => {
     modal.classList.add("active");
-    console.log('button clicked');
 });
 
 // CLOSE MODAL
@@ -41,25 +40,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 // RENDER INVENTORY
-function renderInventory() {
-    inventoryGrid.innerHTML = "";
-
-    inventoryItems.forEach(item => {
-
-        const slot = document.createElement("div");
-        slot.classList.add("item-slot");
-
-        slot.innerHTML = `
-            <div class="item-icon"><img src="${item.icon.src}"></div>
-            <div class="item-name">${item.name}</div>
-            <div class="item-count">${item.count}</div>
-        `;
-
-        inventoryGrid.appendChild(slot);
-    });
-}
-
-renderInventory();
 
 // Reveal pond Div
 pondBtn.addEventListener("click", () => {
@@ -67,6 +47,18 @@ pondBtn.addEventListener("click", () => {
 });
 
 // Add fish to inventory when pond is clicked
-pond.addEventListener("click", () => {
+pond.addEventListener("click", addItem)
     
-})
+function addItem() {
+    const item = inventoryItems[0];
+    const slot = document.createElement("div");
+    slot.classList.add("item-slot");
+
+    slot.innerHTML = `
+        <div class="item-icon"><img src="${item.icon}"></div>
+        <div class="item-name">${item.name}</div>
+        <div class="item-count">${item.count}</div>
+    `;
+
+    inventoryGrid.appendChild(slot);
+}
