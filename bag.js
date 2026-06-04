@@ -4,8 +4,10 @@ fish.style.width = '32px';
 
 // SAMPLE INVENTORY DATA
 const inventoryItems = [
-    { name: "Fish", icon: "./Fish_1.png", count: 1 }
+    { name: "Fish", icon: "./Fish_1.png", rarity: "⚪" },
+    { name: "Fisher", icon: "./Fish_2.png", rarity: "🟢" }
 ];
+const randomInventory = inventoryItems[Math.floor(Math.random() * inventoryItems.length)];
 
 // ELEMENTS
 const modal = document.getElementById("inventoryModal");
@@ -50,14 +52,14 @@ pondBtn.addEventListener("click", () => {
 pond.addEventListener("click", addItem)
     
 function addItem() {
-    const item = inventoryItems[0];
+    const item = inventoryItems[Math.floor(Math.random() * inventoryItems.length)];
     const slot = document.createElement("div");
     slot.classList.add("item-slot");
 
     slot.innerHTML = `
         <div class="item-icon"><img src="${item.icon}"></div>
         <div class="item-name">${item.name}</div>
-        <div class="item-count">${item.count}</div>
+        <div class="item-rarity">${item.rarity}</div>
     `;
 
     inventoryGrid.appendChild(slot);

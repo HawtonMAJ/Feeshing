@@ -168,13 +168,11 @@ button:hover {
     font-weight: bold;
 }
 
-.item-count {
+.item-rarity {
     position: absolute;
     bottom: 8px;
     right: 8px;
-    background: #111;
     padding: 3px 7px;
-    border-radius: 6px;
     font-size: 12px;
 }
 
