@@ -55,12 +55,32 @@ function addItem() {
     const item = inventoryItems[Math.floor(Math.random() * inventoryItems.length)];
     const slot = document.createElement("div");
     slot.classList.add("item-slot");
-
     slot.innerHTML = `
         <div class="item-icon"><img src="${item.icon}"></div>
         <div class="item-name">${item.name}</div>
         <div class="item-rarity">${item.rarity}</div>
     `;
-
     inventoryGrid.appendChild(slot);
+
+    const toast = document.getElementById("toast");
+    toast.innerHTML = `
+    <div class="item-icon"><img src="${item.icon}"></div>
+    <div class="item-name">${item.name}</div>
+    <div class="item-rarity">${item.rarity}</div>
+    `;
+    resetHideTimer();
+}
+
+const toast = document.getElementById("toast");
+let hideTimer;
+function resetHideTimer(){
+    clearTimeout(hideTimer);
+    toast.classList.remove("fade-out");
+    const currentContent = toast.innerHTML;
+
+    hidetimer = setTimeout(() => {
+        if (toast.innerHTML === currentContent) {
+            toast.classList.add("fade-out");
+        }
+    }, 2000);
 }
