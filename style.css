@@ -156,10 +156,26 @@ header button:hover {
 
 .item-rarity {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    padding: 3px 7px;
+    bottom: 25px;
     font-size: 12px;
+}
+.item-rarity-color {
+    display: none;
+}
+.Common{
+    background-color: gray;
+}
+.Uncommon{
+    background-color: green;
+}
+.Rare{
+    background-color: blue;
+}
+.Epic{
+    background-color: purple;
+}
+.Legendaries{
+    background-color: gold;
 }
 
 body {

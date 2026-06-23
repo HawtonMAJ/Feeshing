@@ -1,7 +1,7 @@
 // INVENTORY DATA
 const inventoryItems = [
-    { name: "Fish", icon: "./Fish_1.png", rarity: "⚪", weight: 100 },
-    { name: "Fisher", icon: "./Fish_2.png", rarity: "🟢", weight: 25 }
+    { name: "Fish", icon: "./Fish_1.png", rarityColor: "Gray", rarity: "Common", weight: 100 },
+    { name: "Fisher", icon: "./Fish_2.png", rarityColor: "Green", rarity:"Uncommon", weight: 25 }
 ];
 // ELEMENTS
 const modal = document.getElementById("inventoryModal");
@@ -56,7 +56,9 @@ function addItem() {
     <div class="item-icon"><img src="${item.icon}"></div>
     <div class="item-name">${item.name}</div>
     <div class="item-rarity">${item.rarity}</div>
+    <div class="item-rarity-color">${item.rarityColor}</div>
     `;
+    slot.classList.add(item.rarity)
     inventoryGrid.appendChild(slot);
     // puts all appropriate fish pieces into toast slot
     const toast = document.getElementById("toast");
@@ -64,7 +66,9 @@ function addItem() {
     <div class="item-icon"><img src="${item.icon}"></div>
     <div class="item-name">${item.name}</div>
     <div class="item-rarity">${item.rarity}</div>
+    <div class="item-rarity-color">${item.rarityColor}</div>
     `;
+    toast.style.background = item.rarityColor
     resetHideTimer();
 }
 // Let the player know what fish they just caught
@@ -82,12 +86,25 @@ function resetHideTimer(){
     }, 1000);
 }
 document.addEventListener("DOMContentLoaded", toast.classList.add("fade-out"));
-// Remove Fish from inventory and give money equal to rarity 5 for white 20 for green
+// Remove Fish from inventory and give money equal to rarity 5 for white 30 for green
 inventoryGrid.addEventListener("click", (event) => {
     const itemSlot = event.target.closest(".item-slot")
-    
+    const itemRarityColor = itemSlot.querySelector(".item-rarity-color")
+    const moneyHave = document.querySelector(".money-have")
+
     if (itemSlot) {
         itemSlot.remove();
+    }
+    if (itemRarityColor.textContent === "Gray"){
+        let currentValue = parseInt(moneyHave.textContent.replace("$", ""))
+        let value = currentValue + 5;
+        document.querySelector(".money-have").textContent = "$" + value;
+    } else if (itemRarityColor.textContent === "Green"){
+        let currentValue = parseInt(moneyHave.textContent.replace("$", ""))
+        let value = currentValue + 30;
+        document.querySelector(".money-have").textContent = "$" + value;
+    }else{
+        console.log("poopy")
     }
 });
 // Reveal pond Div
