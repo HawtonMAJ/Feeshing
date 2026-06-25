@@ -111,3 +111,6 @@ inventoryGrid.addEventListener("click", (event) => {
 pondBtn.addEventListener("click", () => {
     pond.classList.toggle("hide");
 });
+
+
+// Look into canvas api
