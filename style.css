@@ -238,7 +238,19 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Old IE/Edge */
+}
+#fishing-spot {
+    width: 75px;
+    height: 75px;
+    background: #4caf50;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
 }
 .hide{
-    display: none;
+    visibility: hidden;
 }
