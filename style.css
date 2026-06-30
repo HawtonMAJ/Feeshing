@@ -230,10 +230,8 @@ body {
 #pond {
     width: 80vw;
     height: 80vh;
-    background: #2b2b2b;
-    background-image: url("pixil-frame-0.png");
-    background-size: 100% 100%;
-    border: 2px solid #444;
+    background: #099cf2;
+    border: 2vh solid #4caf50;
     border-radius: 12px;
     justify-content: center;
     align-items: center;
@@ -246,7 +244,7 @@ body {
 #fishing-spot {
     width: 75px;
     height: 75px;
-    background: #4caf50;
+    background: #4caf4fa9;
     border-radius: 50%;
     position: absolute;
     cursor: pointer;

@@ -16,20 +16,24 @@ const pondBtn = document.getElementById("pondButton")
 // OPEN MODAL
 openBtn.addEventListener("click", () => {
     modal.classList.add("active");
+    pond.classList.add("hide");
 });
 // CLOSE MODAL
 closeBtn.addEventListener("click", () => {
     modal.classList.remove("active");
+    pond.classList.remove("hide");
 });
 // CLOSE WHEN CLICKING OUTSIDE
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
+        pond.classList.remove("hide");
         modal.classList.remove("active");
     }
 });
 // ESC KEY CLOSE
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
+        pond.classList.remove("hide");
         modal.classList.remove("active");
     }
 });
